@@ -1,34 +1,18 @@
-function hasTargetSum(array, target) {
-  // Write your algorithm here
+function hasTargetSum(nums, target) {
+  // Iterate through the array
+  for (let i = 0; i < nums.length; i++) {
+      // Iterate through the array again starting from the next element
+      for (let j = i + 1; j < nums.length; j++) {
+          // Check if the sum of the current pair equals the target
+          if (nums[i] + nums[j] === target) {
+              return true; // If so, return true
+          }
+      }
+  }
+  return false; // If no such pair found, return false
 }
 
-/* 
-  Write the Big O time complexity of your function here
-*/
-
-/* 
-  Add your pseudocode here
-*/
-
-/*
-  Add written explanation of your solution here
-*/
-
-// You can run `node index.js` to view these console logs
-if (require.main === module) {
-  // add your own custom tests in here
-  console.log("Expecting: true");
-  console.log("=>", hasTargetSum([3, 8, 12, 4, 11, 7], 10));
-
-  console.log("");
-
-  console.log("Expecting: true");
-  console.log("=>", hasTargetSum([22, 19, 4, 6, 30], 25));
-
-  console.log("");
-
-  console.log("Expecting: false");
-  console.log("=>", hasTargetSum([1, 2, 5], 4));
-}
-
-module.exports = hasTargetSum;
+// Test cases
+console.log(hasTargetSum([3, 8, 12, 4, 11, 7], 10)); // Output: true
+console.log(hasTargetSum([22, 19, 4, 6, 30], 25)); // Output: true
+console.log(hasTargetSum([1, 2, 5], 4)); // Output: false
